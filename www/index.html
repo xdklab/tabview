@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<!--HTML5 doctype-->
+<html>
+
+<head>
+
+    <title>Launch External Apps</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <link rel="stylesheet" type="text/css" href="lib/appframework/icons.css" />
+    <link rel="stylesheet" type="text/css" href="lib/appframework/af.ui.css" />
+
+    <script type="text/javascript" charset="utf-8" src="lib/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="lib/fastclick.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="lib/appframework/appframework.ui.min.js"></script>  
+
+</head>
+
+<body>
+    <div id="splashscreen" class='ui-loader heavy'>
+        App Framework - Tab View App<br><br>
+        <span class='ui-icon ui-icon-loading spin'></span>
+        <h1>Starting app</h1>
+    </div>
+
+    <div class="view" class="android">
+        <header>
+            <h1>Title</h1>
+        </header>
+
+    <div class="pages">
+
+            <!--Tab View Pages-->
+            <div class="panel" data-title="Home" id="tab1" data-selected="true">
+                Tab View App Home Page
+                <h2>Home</h2>
+                <p>Test app to explore:
+                    <ul>
+                        <li>Launching External Apps</li>
+                        <li>Embeding YouTube Videos</li>
+                        <li>Launching InAppBrowser</li>
+                
+                    </ul>
+                
+                </p>
+            </div>           
+            
+            <div class="panel" data-title="Favorite" id="tab2">
+                Tab View App Videos Page
+                <h2>My Favorite Videos:</h2>   
+               <iframe src="http://www.youtube.com/embed/JIu16I-D3GM?wmode=transparent&amp;wmode=transparent">
+                    </iframe>
+                <iframe src="https://www.youtube.com/embed/fKOK-DzrQQ8"></iframe>
+                <iframe src="https://www.youtube.com/embed/Hoqa-fBsQfs"></iframe>
+            </div>
+
+            <div class="panel" data-title="Contact" id="tab3" >
+                Tab View app Contact Page
+                <h2>contact us:</h2>
+                <p>Email: <a href="mailto:swati.shah@intel.com">swati.shah@intel.com</a> </p>          
+                <p>Phone:  <a href="tel:+100000000">000-000-0000</a></p>               
+            </div>
+            
+            <div class="panel" data-title="Profile" id="tab4">
+                Tab View App Profile Page
+                <h2>My Profile</h2>
+                <button id="launchprofile" onclick="launchProfile();">Launch Facebook Profile</button>
+            </div>
+
+        </div>
+
+        <footer>
+            <a href="#tab1" class="icon home" onclick="$.afui.clearHistory()">Home</a>
+            <a href="#tab2" class="icon heart" onclick="$.afui.clearHistory()">Favorite</a>
+            <a href="#tab3" class="icon message" onclick="$.afui.clearHistory()">Contact</a>
+            <a href="#tab4" class="icon user" onclick="$.afui.clearHistory()">Profile</a>
+        </footer>
+    </div>
+
+    <script type="text/javascript">
+        function launchProfile(){
+            // open inAppBrowser instance to launch external website
+            var ref = window.open("http://facebook.com/intel", "_blank", "");
+        }
+    </script>
+
+</body>
+
+</html>
